@@ -3,6 +3,7 @@ package controllers
 import javax.inject._
 
 import play.api.mvc._
+import services.Config
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
@@ -18,7 +19,7 @@ class HomeController() extends Controller {
    * a path of `/`.
    */
   def index = Action {
-    Ok(views.html.index("Your new application is ready."))
+    Ok(views.html.index(s"Your new application is ready. ${Config.neo4juser}"))
   }
 
 }
