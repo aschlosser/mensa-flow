@@ -21,6 +21,8 @@ object Config {
   val neo4juser = (data \ "neo4j" \ "auth" \ "user").as[String]
   val neo4jpassword = (data \ "neo4j" \ "auth" \ "password").as[String]
 
+  val sessioncookie = "mf-session"
+
   private def parseConfigFile(): JsValue = {
     val f = new File(CONFIG_FILE)
     if (f.exists()) {
