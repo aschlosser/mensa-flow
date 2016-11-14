@@ -12,18 +12,14 @@ class SigninController() extends Controller {
     Ok(views.html.signin(false))
   }
 
-  def handleSignin() = Action(parse.urlFormEncoded) { request => {
-    val db = Database.connect()
-    try {
+  def handleSignin() = Action(parse.urlFormEncoded) { request =>
+    Database.withConnection(db => {
       val params = request.body
       db.login(params.getOrElse("username",Seq("")).head, params.getOrElse("password",Seq("")).head) match {
         case Some(x) => Ok(views.html.signinsuccessful()).withCookies(Cookie(Config.sessioncookie, x.session))
         case None => Unauthorized(views.html.signin(true))
       }
-    } finally {
-      db.close()
-    }
-  }
+    })
   }
 
 }

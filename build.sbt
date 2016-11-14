@@ -10,7 +10,6 @@ libraryDependencies ++= Seq(
   jdbc,
   cache,
   ws,
-  "org.scalatestplus.play" %% "scalatestplus-play" % "1.5.1" % Test,
   "org.neo4j.driver" % "neo4j-java-driver" % "1.0.5"
 )
 

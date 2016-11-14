@@ -1,11 +1,11 @@
 @(error: Boolean)
 
-@main("Sign in") {
+@main("Sign in", null) {
     @if(error) {
         <p>ERROR</p>
     }
 
-    <form action="/signin" method="post">
+    <form action="@services.Config.baseurl/signin" method="post">
         <div class="container">
             <label><b>Username</b></label>
             <input type="text" placeholder="Enter Username" name="username" required>

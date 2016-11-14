@@ -15,10 +15,7 @@ import services.Config
 class Module extends AbstractModule {
 
   override def configure() = {
-    Logger.info("Configuring module");
-    // Ask Guice to create an instance of Config when the
-    // application starts.
-//    Config.init()
+    Logger.info("Configuring module")
   }
 
 }
