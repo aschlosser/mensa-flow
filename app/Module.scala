@@ -1,6 +1,6 @@
 import com.google.inject.AbstractModule
 import play.Logger
-import services.Config
+import services.{ConnectionProvider, MockDatabase, Neo4jDatabase}
 
 /**
  * This class is a Guice module that tells Guice how to bind several
@@ -15,7 +15,8 @@ import services.Config
 class Module extends AbstractModule {
 
   override def configure() = {
-    Logger.info("Configuring module")
+    Logger.info("Configuring guice module")
+    bind(classOf[ConnectionProvider]).toInstance(MockDatabase)
   }
 
 }

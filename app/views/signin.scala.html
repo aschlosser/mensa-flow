@@ -1,6 +1,6 @@
 @(error: Boolean)
 
-@main("Sign in", null) {
+@main("Sign in", Seq[model.MensaEntry]()) {
     @if(error) {
         <p>ERROR</p>
     }
